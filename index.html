@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dharohar Banarasi | Authentic Handwoven Silk Since 1979</title>
+  <meta name="description" content="Discover authentic handwoven Banarasi silk sarees, suits, and dupattas. 45+ years of heritage from Varanasi. Shop Katan Silk, Organza, Georgette Banarasi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-content">
+      <span>🌟 FREE SHIPPING on orders above ₹2,999 &nbsp;|&nbsp; </span>
+      <span>Video Call Shopping Available &nbsp;|&nbsp; </span>
+      <span>✨ 45+ Years of Authentic Banarasi Craftsmanship</span>
+    </div>
+    <button class="announcement-close" onclick="document.getElementById('announcementBar').style.display='none'">✕</button>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <div class="nav-left">
+        <button class="nav-icon-btn" onclick="toggleSearch()" id="searchToggle" aria-label="Search">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="nav-icon-btn mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+
+      <a href="#" class="logo" onclick="showPage('home')">
+        <div class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none"><path d="M50 10 L90 35 L90 65 L50 90 L10 65 L10 35 Z" stroke="#c9a84c" stroke-width="3" fill="none"/><path d="M50 25 L75 42 L75 62 L50 78 L25 62 L25 42 Z" fill="#c9a84c" opacity="0.15"/><circle cx="50" cy="50" r="8" fill="#c9a84c"/></svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">DHAROHAR</span>
+          <span class="logo-sub">BANARASI</span>
+        </div>
+      </a>
+
+      <div class="nav-links desktop-nav">
+        <a href="#" class="nav-link" onclick="showPage('home')">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Collections ▾</a>
+          <div class="dropdown-menu">
+            <a href="#" onclick="filterProducts('katan-silk')">Katan Silk Sarees</a>
+            <a href="#" onclick="filterProducts('organza')">Organza Sarees</a>
+            <a href="#" onclick="filterProducts('georgette')">Georgette Sarees</a>
+            <a href="#" onclick="filterProducts('cotton')">Cotton Sarees</a>
+            <a href="#" onclick="filterProducts('suits')">Banarasi Suits</a>
+            <a href="#" onclick="filterProducts('dupatta')">Bridal Dupattas</a>
+          </div>
+        </div>
+        <a href="#" class="nav-link" onclick="showPage('shop')">Shop All</a>
+        <a href="#about" class="nav-link">Our Story</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="nav-icon-btn wishlist-btn" onclick="showToast('Wishlist coming soon!')" aria-label="Wishlist">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="nav-icon-btn cart-btn" onclick="toggleCart()" aria-label="Cart">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="search-container">
+        <input type="text" placeholder="Search for sarees, suits, dupattas..." id="searchInput" oninput="searchProducts(this.value)">
+        <button onclick="toggleSearch()">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" onclick="showPage('home'); toggleMobileMenu()">Home</a>
+      <a href="#" onclick="showPage('shop'); toggleMobileMenu()">Shop All</a>
+      <a href="#" onclick="filterProducts('katan-silk'); toggleMobileMenu()">Katan Silk Sarees</a>
+      <a href="#" onclick="filterProducts('organza'); toggleMobileMenu()">Organza Sarees</a>
+      <a href="#" onclick="filterProducts('georgette'); toggleMobileMenu()">Georgette Sarees</a>
+      <a href="#" onclick="filterProducts('cotton'); toggleMobileMenu()">Cotton Sarees</a>
+      <a href="#" onclick="filterProducts('suits'); toggleMobileMenu()">Banarasi Suits</a>
+      <a href="#" onclick="filterProducts('dupatta'); toggleMobileMenu()">Bridal Dupattas</a>
+      <a href="#about" onclick="toggleMobileMenu()">Our Story</a>
+      <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+    </div>
+  </header>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart (<span id="cartItemCount">0</span>)</h3>
+      <button onclick="toggleCart()" class="cart-close">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <svg width="60" height="60" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" opacity="0.3"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <p>Your cart is empty</p>
+        <button class="btn-primary" onclick="toggleCart(); showPage('shop')">Browse Collections</button>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <p class="cart-shipping-note">Free shipping on orders above ₹2,999</p>
+      <button class="btn-primary btn-full" onclick="checkout()">Proceed to Checkout →</button>
+      <button class="btn-outline btn-full" onclick="toggleCart()">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HOME PAGE -->
+    <div id="homePage">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-bg">
+          <img src="images/hero_saree.jpg" alt="Banarasi Silk Heritage" class="hero-img">
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+          <div class="hero-badge"><span>✦ Since 1979 ✦</span></div>
+          <h1 class="hero-title">Where Heritage<br><em>Meets Elegance</em></h1>
+          <p class="hero-subtitle">Authentic handwoven Banarasi silk sarees, suits & dupattas.<br>Crafted by master weavers of Varanasi — a 45-year legacy.</p>
+          <div class="hero-buttons">
+            <button class="btn-gold" onclick="showPage('shop')">Explore Collection</button>
+            <button class="btn-outline-light" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Our Story</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-num">45+</span><span class="stat-label">Years Legacy</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Happy Customers</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Handwoven</span></div>
+          </div>
+        </div>
+        <div class="hero-scroll"><div class="scroll-indicator"></div></div>
+      </section>
+
+      <!-- Trust Bar -->
+      <section class="trust-bar">
+        <div class="trust-bar-inner">
+          <div class="trust-item">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <div><strong>Free Shipping</strong><span>Above ₹2,999</span></div>
+          </div>
+          <div class="trust-item">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <div><strong>100% Authentic</strong><span>Certified Handwoven</span></div>
+          </div>
+          <div class="trust-item">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 10l-4 4l6 6l4-16l-18 7l4 2l2 6"/></svg>
+            <div><strong>Video Shopping</strong><span>See before you buy</span></div>
+          </div>
+          <div class="trust-item">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <div><strong>Easy Returns</strong><span>7-day hassle-free</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="categories-section">
+        <div class="section-header">
+          <span class="section-tag">Explore</span>
+          <h2 class="section-title">Our Collections</h2>
+          <p class="section-desc">Handpicked from the looms of Varanasi's finest weavers</p>
+        </div>
+        <div class="categories-grid">
+          <div class="category-card large" onclick="filterProducts('katan-silk')" style="background-image: url('images/katan_silk_saree.jpg')">
+            <div class="category-overlay"><span class="category-tag">Most Loved</span><h3>Katan Silk</h3><p>Rich texture & premium zari</p><span class="category-cta">Shop Now →</span></div>
+          </div>
+          <div class="category-card" onclick="filterProducts('organza')" style="background-image: url('images/organza_saree.jpg')">
+            <div class="category-overlay"><h3>Organza</h3><p>Lightweight elegance</p><span class="category-cta">Shop Now →</span></div>
+          </div>
+          <div class="category-card" onclick="filterProducts('georgette')" style="background-image: url('images/georgette_saree.jpg')">
+            <div class="category-overlay"><h3>Georgette</h3><p>Flowing drapes</p><span class="category-cta">Shop Now →</span></div>
+          </div>
+          <div class="category-card" onclick="filterProducts('suits')" style="background-image: url('images/banarasi_suit.jpg')">
+            <div class="category-overlay"><h3>Banarasi Suits</h3><p>Traditional ethnic wear</p><span class="category-cta">Shop Now →</span></div>
+          </div>
+          <div class="category-card" onclick="filterProducts('dupatta')" style="background-image: url('images/bridal_dupatta.jpg')">
+            <div class="category-overlay"><span class="category-tag">Bridal</span><h3>Bridal Dupattas</h3><p>For your special day</p><span class="category-cta">Shop Now →</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section class="featured-section">
+        <div class="section-header">
+          <span class="section-tag">New Arrivals</span>
+          <h2 class="section-title">Bestsellers</h2>
+          <p class="section-desc">Our most cherished pieces, loved across generations</p>
+        </div>
+        <div class="products-grid" id="featuredProducts"></div>
+        <div class="view-all-wrap"><button class="btn-outline-dark" onclick="showPage('shop')">View All Products →</button></div>
+      </section>
+
+      <!-- Heritage -->
+      <section class="heritage-section" id="about">
+        <div class="heritage-grid">
+          <div class="heritage-image">
+            <img src="images/varanasi_weaving.jpg" alt="Varanasi Weavers">
+            <div class="heritage-badge-float"><span class="badge-num">45+</span><span class="badge-text">Years of Legacy</span></div>
+          </div>
+          <div class="heritage-content">
+            <span class="section-tag">Our Story</span>
+            <h2>Where Every Thread<br>Tells a Story</h2>
+            <p>Founded in 1979 by the Choudhary family in the heart of Varanasi, Dharohar Banarasi is more than a brand — it is a living tradition. For over 45 years, we have worked directly with master weavers who have inherited this art across generations.</p>
+            <p>Each saree takes 15 days to 6 months to craft, with weavers meticulously interlacing gold and silver zari threads into silk on traditional handlooms. The result is wearable art that carries the soul of Banaras.</p>
+            <div class="heritage-features">
+              <div class="heritage-feature"><div class="feature-icon">🧵</div><div><strong>Handwoven Only</strong><p>Every product made by hand, never machine</p></div></div>
+              <div class="heritage-feature"><div class="feature-icon">✨</div><div><strong>Pure Zari Work</strong><p>Authentic gold & silver thread weaving</p></div></div>
+              <div class="heritage-feature"><div class="feature-icon">🌍</div><div><strong>Worldwide Shipping</strong><p>Delivering heritage globally</p></div></div>
+            </div>
+            <button class="btn-gold" onclick="showPage('shop')">Explore Our Craft</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials-section">
+        <div class="section-header">
+          <span class="section-tag">Reviews</span>
+          <h2 class="section-title">Loved by Thousands</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The Katan silk saree I ordered was breathtaking. The zari work is so intricate — you can tell it was crafted with love and expertise. It felt like wearing a piece of history."</p>
+            <div class="reviewer"><div class="reviewer-avatar">P</div><div><strong>Priya Sharma</strong><span>Mumbai, Maharashtra</span></div></div>
+          </div>
+          <div class="testimonial-card featured-review">
+            <div class="stars">★★★★★</div>
+            <p>"I ordered a bridal dupatta via video call. The team was so helpful showing me details live. It arrived perfectly packed, and on my wedding day I received so many compliments!"</p>
+            <div class="reviewer"><div class="reviewer-avatar">A</div><div><strong>Ananya Reddy</strong><span>Hyderabad, Telangana</span></div></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Ordered from London and received my organza saree in perfect condition. The authenticity is real — you can see the floating threads at the back. Worth every penny!"</p>
+            <div class="reviewer"><div class="reviewer-avatar">N</div><div><strong>Neha Gupta</strong><span>London, UK</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lookbook -->
+      <section class="lookbook-section">
+        <div class="section-header">
+          <span class="section-tag">@dharoharbanarasi</span>
+          <h2 class="section-title">Wear the Heritage</h2>
+          <p class="section-desc">Tag us on Instagram to be featured</p>
+        </div>
+        <div class="lookbook-grid">
+          <div class="lookbook-item" style="background-image: url('images/hero_saree.jpg')"><div class="lookbook-overlay"><span>♡</span></div></div>
+          <div class="lookbook-item" style="background-image: url('images/katan_silk_saree.jpg')"><div class="lookbook-overlay"><span>♡</span></div></div>
+          <div class="lookbook-item" style="background-image: url('images/organza_saree.jpg')"><div class="lookbook-overlay"><span>♡</span></div></div>
+          <div class="lookbook-item" style="background-image: url('images/bridal_dupatta.jpg')"><div class="lookbook-overlay"><span>♡</span></div></div>
+          <div class="lookbook-item" style="background-image: url('images/georgette_saree.jpg')"><div class="lookbook-overlay"><span>♡</span></div></div>
+          <div class="lookbook-item" style="background-image: url('images/cotton_saree.jpg')"><div class="lookbook-overlay"><span>♡</span></div></div>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter-section">
+        <div class="newsletter-inner">
+          <div class="newsletter-decor">✦</div>
+          <h2>Join Our Heritage Circle</h2>
+          <p>Be the first to know about new arrivals, exclusive offers, and stories from our weavers.</p>
+          <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-gold">Subscribe</button>
+          </form>
+          <p class="newsletter-note">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- SHOP PAGE -->
+    <div id="shopPage" style="display:none">
+      <div class="shop-header">
+        <h1>Our Collections</h1>
+        <p>Handwoven Banarasi Silk — Straight from the Looms of Varanasi</p>
+      </div>
+      <div class="shop-container">
+        <aside class="shop-sidebar">
+          <div class="filter-group">
+            <h4>Categories</h4>
+            <label><input type="checkbox" value="all" id="filterAll" checked onchange="handleFilterChange(this)"> All Products</label>
+            <label><input type="checkbox" value="katan-silk" onchange="handleFilterChange(this)"> Katan Silk Sarees</label>
+            <label><input type="checkbox" value="organza" onchange="handleFilterChange(this)"> Organza Sarees</label>
+            <label><input type="checkbox" value="georgette" onchange="handleFilterChange(this)"> Georgette Sarees</label>
+            <label><input type="checkbox" value="cotton" onchange="handleFilterChange(this)"> Cotton Sarees</label>
+            <label><input type="checkbox" value="suits" onchange="handleFilterChange(this)"> Banarasi Suits</label>
+            <label><input type="checkbox" value="dupatta" onchange="handleFilterChange(this)"> Bridal Dupattas</label>
+          </div>
+          <div class="filter-group">
+            <h4>Max Price</h4>
+            <input type="range" min="500" max="50000" value="50000" id="priceRange" oninput="updatePriceFilter(this.value)">
+            <div class="price-labels"><span>₹500</span><span id="priceMax">₹50,000</span></div>
+          </div>
+          <div class="filter-group">
+            <h4>Sort By</h4>
+            <select onchange="sortProducts(this.value)" id="sortSelect">
+              <option value="default">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name">Name A-Z</option>
+            </select>
+          </div>
+        </aside>
+        <div class="shop-main">
+          <div class="shop-toolbar">
+            <span id="productCount">Loading...</span>
+            <div class="view-toggle">
+              <button onclick="setGridColumns(4)" class="view-btn active" id="view4">⊞</button>
+              <button onclick="setGridColumns(3)" class="view-btn" id="view3">⊟</button>
+            </div>
+          </div>
+          <div class="products-grid" id="shopProducts"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <div id="productPage" style="display:none">
+      <div class="product-detail-container" id="productDetail"></div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none"><path d="M50 10 L90 35 L90 65 L50 90 L10 65 L10 35 Z" stroke="#c9a84c" stroke-width="3" fill="none"/><circle cx="50" cy="50" r="8" fill="#c9a84c"/></svg>
+          <div><span class="logo-main" style="color:#f5e6c8">DHAROHAR</span><span class="logo-sub" style="color:#c9a84c">BANARASI</span></div>
+        </div>
+        <p>Authentic handwoven Banarasi silk since 1979. Preserving the ancient art of Varanasi's master weavers for generations.</p>
+        <div class="social-links">
+          <a href="https://instagram.com/dharoharbanarasi" class="social-link" target="_blank" aria-label="Instagram">📷</a>
+          <a href="https://facebook.com/dharoharbanarasi" class="social-link" target="_blank" aria-label="Facebook">👍</a>
+          <a href="https://wa.me/919876543210" class="social-link" target="_blank" aria-label="WhatsApp">💬</a>
+          <a href="https://youtube.com/@dharoharbanarasi" class="social-link" target="_blank" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <a href="#" onclick="filterProducts('katan-silk')">Katan Silk Sarees</a>
+          <a href="#" onclick="filterProducts('organza')">Organza Sarees</a>
+          <a href="#" onclick="filterProducts('georgette')">Georgette Sarees</a>
+          <a href="#" onclick="filterProducts('cotton')">Cotton Sarees</a>
+          <a href="#" onclick="filterProducts('suits')">Banarasi Suits</a>
+          <a href="#" onclick="filterProducts('dupatta')">Bridal Dupattas</a>
+        </div>
+        <div class="footer-col">
+          <h4>Help & Info</h4>
+          <a href="#">Saree Care Guide</a>
+          <a href="#">Authenticity Guide</a>
+          <a href="#">Draping Guide</a>
+          <a href="#">Track Your Order</a>
+          <a href="#">Return Policy</a>
+          <a href="#">FAQs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p>📍 Choudhary Saree Industries<br>Varanasi, UP 221001</p>
+          <p>📞 +91 98765 43210</p>
+          <p>✉️ info@dharoharbanarasi.com</p>
+          <p>🕐 Mon–Sat: 10AM – 7PM IST</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Dharohar Banarasi | Choudhary Saree Industries. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Shipping Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Checkout Modal -->
+  <div class="checkout-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <button class="checkout-close" onclick="closeCheckout()">✕</button>
+    <div class="checkout-inner">
+      <h2>Complete Your Order</h2>
+      <form onsubmit="placeOrder(event)">
+        <div class="checkout-section">
+          <h3>Shipping Details</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" required placeholder="Priya"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" required placeholder="Sharma"></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" required placeholder="priya@example.com"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" required placeholder="+91 98765 43210"></div>
+          <div class="form-group"><label>Address</label><input type="text" required placeholder="Street address, apartment, etc."></div>
+          <div class="form-row">
+            <div class="form-group"><label>City</label><input type="text" required placeholder="Mumbai"></div>
+            <div class="form-group"><label>PIN Code</label><input type="text" required placeholder="400001"></div>
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <select required><option value="">Select State</option><option>Maharashtra</option><option>Delhi</option><option>Karnataka</option><option>Tamil Nadu</option><option>Uttar Pradesh</option><option>West Bengal</option><option>Rajasthan</option><option>Gujarat</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="checkout-section">
+          <h3>Payment Method</h3>
+          <div class="payment-options">
+            <label class="payment-option"><input type="radio" name="payment" value="cod" checked><span>💵 Cash on Delivery</span></label>
+            <label class="payment-option"><input type="radio" name="payment" value="upi"><span>📱 UPI / PhonePe / GPay</span></label>
+            <label class="payment-option"><input type="radio" name="payment" value="card"><span>💳 Credit / Debit Card</span></label>
+          </div>
+        </div>
+        <div class="checkout-summary" id="checkoutSummary"></div>
+        <button type="submit" class="btn-gold btn-full" style="font-size:1.05rem;padding:15px 30px;margin-top:16px">Place Order →</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
