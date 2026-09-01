@@ -74,7 +74,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .nav {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2rem; height: 72px; max-width: 1400px; margin: 0 auto;
+  padding: 0 2rem; height: 90px; max-width: 1400px; margin: 0 auto;
 }
 
 .nav-left { display: flex; align-items: center; gap: 8px; }
@@ -94,14 +94,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--gold); font-weight: 500; text-transform: uppercase;
 }
 .logo-img {
-  height: 52px; width: auto; object-fit: contain;
+  height: 80px; width: auto; object-fit: contain;
   transition: var(--transition);
 }
-.logo-img:hover { opacity: 0.9; }
+.logo-img:hover { opacity: 0.85; transform: scale(1.02); }
 .footer-logo-img {
-  height: 60px; width: auto; object-fit: contain;
+  height: 90px; width: auto; object-fit: contain;
   filter: brightness(0) invert(1);
   margin-bottom: 8px;
+  opacity: 0.9;
 }
 
 .desktop-nav { display: flex; align-items: center; gap: 2px; }
