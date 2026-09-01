@@ -93,6 +93,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 0.35em;
   color: var(--gold); font-weight: 500; text-transform: uppercase;
 }
+.logo-img {
+  height: 52px; width: auto; object-fit: contain;
+  transition: var(--transition);
+}
+.logo-img:hover { opacity: 0.9; }
+.footer-logo-img {
+  height: 60px; width: auto; object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin-bottom: 8px;
+}
 
 .desktop-nav { display: flex; align-items: center; gap: 2px; }
 
