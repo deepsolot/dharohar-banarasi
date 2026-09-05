@@ -52,6 +52,17 @@
           </div>
         </div>
         <a href="#" class="nav-link" onclick="showPage('shop')">Shop All</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link" onclick="showPage('help')">Help & Info ▾</a>
+          <div class="dropdown-menu">
+            <a href="#" onclick="showHelpTab('saree-care')">Saree Care Guide</a>
+            <a href="#" onclick="showHelpTab('authenticity')">Authenticity Guide</a>
+            <a href="#" onclick="showHelpTab('draping')">Draping Guide</a>
+            <a href="#" onclick="showHelpTab('track-order')">Track Your Order</a>
+            <a href="#" onclick="showHelpTab('returns')">Return Policy</a>
+            <a href="#" onclick="showHelpTab('faqs')">FAQs</a>
+          </div>
+        </div>
         <a href="#about" class="nav-link">Our Story</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
@@ -87,6 +98,13 @@
       <a href="#" onclick="filterProducts('cotton'); toggleMobileMenu()">Cotton Sarees</a>
       <a href="#" onclick="filterProducts('suits'); toggleMobileMenu()">Banarasi Suits</a>
       <a href="#" onclick="filterProducts('dupatta'); toggleMobileMenu()">Bridal Dupattas</a>
+      <a href="#" onclick="showPage('help'); toggleMobileMenu()" style="color:var(--gold-dark);font-weight:600">✦ Help & Guides Hub</a>
+      <a href="#" onclick="showHelpTab('saree-care'); toggleMobileMenu()">&nbsp;&nbsp;↳ Saree Care Guide</a>
+      <a href="#" onclick="showHelpTab('authenticity'); toggleMobileMenu()">&nbsp;&nbsp;↳ Authenticity Guide</a>
+      <a href="#" onclick="showHelpTab('draping'); toggleMobileMenu()">&nbsp;&nbsp;↳ Draping Guide</a>
+      <a href="#" onclick="showHelpTab('track-order'); toggleMobileMenu()">&nbsp;&nbsp;↳ Track Your Order</a>
+      <a href="#" onclick="showHelpTab('returns'); toggleMobileMenu()">&nbsp;&nbsp;↳ Return Policy</a>
+      <a href="#" onclick="showHelpTab('faqs'); toggleMobileMenu()">&nbsp;&nbsp;↳ FAQs</a>
       <a href="#about" onclick="toggleMobileMenu()">Our Story</a>
       <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
     </div>
@@ -330,6 +348,562 @@
       </div>
     </div>
 
+    <!-- HELP & INFO PAGE -->
+    <div id="helpPage" style="display:none">
+      <div class="help-hero">
+        <div class="help-hero-content">
+          <span class="section-tag" style="color:var(--gold-light)">Customer Care & Knowledge</span>
+          <h1 class="help-title">Help & Heritage Guides</h1>
+          <p class="help-subtitle">Everything you need to know about caring for, authenticating, styling, and tracking your handwoven Banarasi treasures.</p>
+        </div>
+      </div>
+
+      <div class="help-container">
+        <!-- Help Navigation Tabs -->
+        <div class="help-tabs-nav" id="helpTabsNav">
+          <button class="help-tab-btn active" onclick="switchHelpTab('saree-care')" id="tab-saree-care">
+            <span class="tab-icon">👘</span>
+            <span class="tab-text">Saree Care</span>
+          </button>
+          <button class="help-tab-btn" onclick="switchHelpTab('authenticity')" id="tab-authenticity">
+            <span class="tab-icon">🛡️</span>
+            <span class="tab-text">Authenticity Guide</span>
+          </button>
+          <button class="help-tab-btn" onclick="switchHelpTab('draping')" id="tab-draping">
+            <span class="tab-icon">🥻</span>
+            <span class="tab-text">Draping Guide</span>
+          </button>
+          <button class="help-tab-btn" onclick="switchHelpTab('track-order')" id="tab-track-order">
+            <span class="tab-icon">📦</span>
+            <span class="tab-text">Track Your Order</span>
+          </button>
+          <button class="help-tab-btn" onclick="switchHelpTab('returns')" id="tab-returns">
+            <span class="tab-icon">🔄</span>
+            <span class="tab-text">Return Policy</span>
+          </button>
+          <button class="help-tab-btn" onclick="switchHelpTab('faqs')" id="tab-faqs">
+            <span class="tab-icon">❓</span>
+            <span class="tab-text">FAQs</span>
+          </button>
+        </div>
+
+        <!-- TAB 1: SAREE CARE GUIDE -->
+        <div class="help-tab-content active" id="content-saree-care">
+          <div class="help-section-header">
+            <span class="help-badge">Heirloom Preservation</span>
+            <h2>How to Care for Your Banarasi Silk Saree</h2>
+            <p>Pure Banarasi silk is an investment in artisanal craftsmanship. With proper care, these handwoven masterpieces retain their luster and zari strength for decades, passing gracefully from one generation to the next.</p>
+          </div>
+
+          <div class="care-grid">
+            <div class="care-card">
+              <div class="care-card-icon">🧼</div>
+              <h3>1. Washing & Cleaning</h3>
+              <p><strong>Strictly Dry Clean Only:</strong> Always dry clean pure Katan, Organza, Tanchoi, and Georgette Banarasi sarees. Water washing can tarnish genuine zari threads and cause pure mulberry silk to lose its natural sheen.</p>
+              <ul class="care-tips-list">
+                <li>Choose a trusted, experienced dry cleaner familiar with real silk and zari.</li>
+                <li>Avoid petrol washes or harsh chemical bleaches.</li>
+                <li>For minor liquid spills, immediately blot gently with a dry white cotton cloth without rubbing.</li>
+              </ul>
+            </div>
+
+            <div class="care-card">
+              <div class="care-card-icon">🧺</div>
+              <h3>2. Storage & Wrapping</h3>
+              <p><strong>Use Breathable Muslin Cloth:</strong> Never store silk in synthetic plastic bags, which trap moisture and can react chemically with metallic zari threads.</p>
+              <ul class="care-tips-list">
+                <li>Wrap each saree individually in unbleached cotton muslin cloth or soft mulmul.</li>
+                <li>Store flat on a wooden or cloth-lined shelf, away from direct sunlight and dampness.</li>
+                <li>Use natural dried neem leaves or cloves instead of naphthalene balls to prevent chemical discoloration.</li>
+              </ul>
+            </div>
+
+            <div class="care-card">
+              <div class="care-card-icon">🔄</div>
+              <h3>3. Refolding Routine</h3>
+              <p><strong>Change Folds Periodically:</strong> Storing heavy zari sarees in the exact same fold for long durations can weaken silk yarns along crease lines.</p>
+              <ul class="care-tips-list">
+                <li>Unfold and change the crease lines every 3 to 4 months.</li>
+                <li>Air out the saree in a well-ventilated room in gentle shade for 20 minutes before refolding.</li>
+                <li>Fold with the zari work facing inward to protect against accidental friction or snagging.</li>
+              </ul>
+            </div>
+
+            <div class="care-card">
+              <div class="care-card-icon">♨️</div>
+              <h3>4. Ironing & Steaming</h3>
+              <p><strong>Low Heat & Protective Buffer:</strong> Never apply a hot iron directly onto the saree face or zari motifs.</p>
+              <ul class="care-tips-list">
+                <li>Set the iron to the lowest 'Silk' setting.</li>
+                <li>Always iron on the reverse side or place a fine cotton cloth over the saree.</li>
+                <li>Do not spray water directly on silk while ironing, as this can cause water ring marks.</li>
+              </ul>
+            </div>
+
+            <div class="care-card">
+              <div class="care-card-icon">✨</div>
+              <h3>5. Perfume & Sweat Protection</h3>
+              <p><strong>Keep Scents at a Distance:</strong> Spritzing perfumes, deodorants, or hairsprays directly on zari causes rapid silver/gold oxidation and dark tarnishing.</p>
+              <ul class="care-tips-list">
+                <li>Apply perfume and body lotion and let it dry completely before draping your saree.</li>
+                <li>Use underarm sweat pads if wearing in hot or humid conditions.</li>
+                <li>Air the saree immediately after wear before placing it back into storage.</li>
+              </ul>
+            </div>
+
+            <div class="care-card">
+              <div class="care-card-icon">🧵</div>
+              <h3>6. Fall, Pico & Roll Press</h3>
+              <p><strong>Professional Finishing:</strong> Adding a high-quality cotton fall provides weight and structure, safeguarding the lower hemline from heel abrasion.</p>
+              <ul class="care-tips-list">
+                <li>Stitch a 100% pre-washed cotton fall along the pleats and bottom border.</li>
+                <li>Get pico (overlocking) done along both pallu ends to prevent thread fraying.</li>
+                <li>Request traditional steam roll-pressing from silk specialists to maintain the crisp fall.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="help-cta-box">
+            <div class="cta-content">
+              <h3>Have questions about a specific fabric or stain?</h3>
+              <p>Our Varanasi textile specialists are available on WhatsApp to assist you with personalized care advice.</p>
+            </div>
+            <a href="https://wa.me/919565630398?text=Hello%20Dharohar%20Banarasi,%20I%20need%20care%20guidance%20for%20my%20saree" target="_blank" class="btn-gold">Chat with Silk Expert</a>
+          </div>
+        </div>
+
+        <!-- TAB 2: AUTHENTICITY GUIDE -->
+        <div class="help-tab-content" id="content-authenticity">
+          <div class="help-section-header">
+            <span class="help-badge">GI Certified Craft</span>
+            <h2>5 Hallmarks of an Authentic Handloom Banarasi Saree</h2>
+            <p>Varanasi handweaving is protected by Geographical Indication (GI). Here is how you can verify genuine handloom purity against powerloom imitations.</p>
+          </div>
+
+          <div class="authenticity-cards">
+            <div class="auth-feature-card">
+              <div class="auth-num">01</div>
+              <div class="auth-body">
+                <h3>The Floating Weft (Kadwa vs Kadiyal Technique)</h3>
+                <p>On genuine handloom Banarasi sarees, turn the saree over to inspect the reverse side. In authentic handwoven <em>Kadwa</em> weaving, each booti motif is individually crafted with separate shuttles, leaving neat, soft floating threads without harsh plastic mesh. Powerlooms cut threads mechanically, resulting in stiff, scratchy patches.</p>
+              </div>
+            </div>
+
+            <div class="auth-feature-card">
+              <div class="auth-num">02</div>
+              <div class="auth-body">
+                <h3>The Loom Pin Marks on the Selvedge</h3>
+                <p>Look closely at the border edge (selvedge) of the saree. Authentic handloom sarees feature tiny, evenly spaced pinholes or shuttle clip marks where the warp threads were pinned to the wooden pit-loom beam during weeks of weaving. Machine-woven sarees have sharp, cold laser-cut synthetic edges.</p>
+              </div>
+            </div>
+
+            <div class="auth-feature-card">
+              <div class="auth-num">03</div>
+              <div class="auth-body">
+                <h3>Warm Metallic Luster of Tested Zari</h3>
+                <p>Authentic Banarasi uses electroplated gold and silver zari on silk/metallic core threads that impart a rich, muted, regal warmth. Cheap synthetic imitations exhibit an unnaturally bright, glossy plastic-like yellow glare that turns black or flakes easily.</p>
+              </div>
+            </div>
+
+            <div class="auth-feature-card">
+              <div class="auth-num">04</div>
+              <div class="auth-body">
+                <h3>Silk Mark & GI (Geographical Indication) Proof</h3>
+                <p>Dharohar Banarasi works under the aegis of Choudhary Saree Industries (Est. 1979). Our pure silk creations comply with Silk Mark guidelines guaranteeing 100% natural mulberry and katan silk filaments with zero polyester blending.</p>
+              </div>
+            </div>
+
+            <div class="auth-feature-card">
+              <div class="auth-num">05</div>
+              <div class="auth-body">
+                <h3>The Weight, Drape & Touch of Pure Katan</h3>
+                <p>Pure mulberry Katan silk possesses a distinctive natural hand-feel — crisp yet soft, cool to the touch, and surprisingly light despite rich zari density. When rubbed gently between fingers, genuine silk produces a faint rustling sound known as the 'scroop' of silk.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="comparison-container">
+            <h3 class="comparison-title">Handloom vs Powerloom: Quick Reference</h3>
+            <div class="table-responsive">
+              <table class="auth-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Authentic Handloom (Dharohar)</th>
+                    <th>Mass Powerloom Imitation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Artisan Time</strong></td>
+                    <td>15 days to 6 months per saree</td>
+                    <td>2 to 4 hours machine run</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Reverse Texture</strong></td>
+                    <td>Soft hand-tied knots, no scratchy plastic</td>
+                    <td>Rough, prickly cut-ends and glue coating</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fabric Purity</strong></td>
+                    <td>100% Pure Mulberry / Katan Silk</td>
+                    <td>Nylon / Art-silk / Polyester blends</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Heirloom Value</strong></td>
+                    <td>Appreciates over generations as antique art</td>
+                    <td>Fades and deteriorates within 1-2 years</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GI Authenticity</strong></td>
+                    <td>Varanasi Weaver Guild Certified</td>
+                    <td>Unregulated mass industrial print</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: DRAPING GUIDE -->
+        <div class="help-tab-content" id="content-draping">
+          <div class="help-section-header">
+            <span class="help-badge">Styling Masterclass</span>
+            <h2>Step-by-Step Banarasi Saree Draping Styles</h2>
+            <p>Elevate your presence with traditional and contemporary ways to showcase the opulent zari pallu and regal border of your Banarasi saree.</p>
+          </div>
+
+          <div class="draping-grid">
+            <!-- Style 1 -->
+            <div class="draping-card">
+              <div class="drape-header">
+                <span class="drape-tag">Timeless Classic</span>
+                <h3>1. Classic Nivi Drape (Royal Pleated)</h3>
+              </div>
+              <p class="drape-desc">The universally flattering traditional drape that showcases the pleats cleanly and lets the heavy zari pallu rest gracefully over the left shoulder.</p>
+              <div class="drape-steps">
+                <div class="step-item"><span class="step-num">Step 1</span><p>Tuck the plain inner end into the petticoat waistband, starting at navel and completing one full clockwise circle around your waist.</p></div>
+                <div class="step-item"><span class="step-num">Step 2</span><p>Measure the pallu length (keep at least 1 to 1.2 meters to showcase the full Banarasi zari jaal) and bring it across your back over the left shoulder.</p></div>
+                <div class="step-item"><span class="step-num">Step 3</span><p>Create 6 to 8 even pleats (approx. 5 inches wide) from the remaining fabric in the front and tuck them firmly into the waistband.</p></div>
+                <div class="step-item"><span class="step-num">Step 4</span><p>Neatly arrange the shoulder pleats and secure with a cushioned safety pin behind your shoulder seam.</p></div>
+              </div>
+            </div>
+
+            <!-- Style 2 -->
+            <div class="draping-card">
+              <div class="drape-header">
+                <span class="drape-tag">Bridal & Festive</span>
+                <h3>2. Gujarati / Seedha Pallu Drape</h3>
+              </div>
+              <p class="drape-desc">Ideal for weddings and grand ceremonies as it brings the entire heavy zari pallu to the front chest, highlighting every woven motif.</p>
+              <div class="drape-steps">
+                <div class="step-item"><span class="step-num">Step 1</span><p>Complete the basic waist tuck from right to left as usual.</p></div>
+                <div class="step-item"><span class="step-num">Step 2</span><p>Form pleats in the front and tuck them in, leaving the pallu end free.</p></div>
+                <div class="step-item"><span class="step-num">Step 3</span><p>Take the pallu from the back over your <em>right</em> shoulder to the front, letting it fall vertically across your torso.</p></div>
+                <div class="step-item"><span class="step-num">Step 4</span><p>Spread the intricate left corner of the pallu across your waist and secure it neatly on the left side of your hip.</p></div>
+              </div>
+            </div>
+
+            <!-- Style 3 -->
+            <div class="draping-card">
+              <div class="drape-header">
+                <span class="drape-tag">Heritage Glamour</span>
+                <h3>3. Bengali Regal Drape</h3>
+              </div>
+              <p class="drape-desc">A magnificent drape with wide box pleats and a sweeping double-pallu accent, perfect for Durga Puja, receptions, and family celebrations.</p>
+              <div class="drape-steps">
+                <div class="step-item"><span class="step-num">Step 1</span><p>Tuck the saree from right to left around the waist, then reverse and create 2 large broad box pleats in front.</p></div>
+                <div class="step-item"><span class="step-num">Step 2</span><p>Take the pallu around your back and drape it generously over the left shoulder, letting it hang down.</p></div>
+                <div class="step-item"><span class="step-num">Step 3</span><p>Pick the tip of the pallu, bring it under your right arm, and throw it back over the right shoulder with an ornate silver key-ring or brooch.</p></div>
+              </div>
+            </div>
+
+            <!-- Style 4 -->
+            <div class="draping-card">
+              <div class="drape-header">
+                <span class="drape-tag">Modern Silhouette</span>
+                <h3>4. Open Floating Pallu (Cocktail Style)</h3>
+              </div>
+              <p class="drape-desc">Let the sheer lightness of Organza or flow of Georgette Banarasi speak for itself with a fluid, unpleated open-arm pallu.</p>
+              <div class="drape-steps">
+                <div class="step-item"><span class="step-num">Step 1</span><p>Complete the waist tuck and tuck 5 to 6 neat pleats in front.</p></div>
+                <div class="step-item"><span class="step-num">Step 2</span><p>Leave the pallu unpleated, pin only at the shoulder top, and let the sheer fabric drape fluidly over your forearm.</p></div>
+                <div class="step-item"><span class="step-num">Step 3</span><p>Pair with a sleeveless or embroidered blouse for a contemporary royal look.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: TRACK YOUR ORDER -->
+        <div class="help-tab-content" id="content-track-order">
+          <div class="help-section-header">
+            <span class="help-badge">Live Shipment Tracking</span>
+            <h2>Track Your Dharohar Order</h2>
+            <p>Enter your 6-digit Order ID (e.g. <strong>DHB849201</strong>) or registered phone number to view the live status of your handwoven parcel.</p>
+          </div>
+
+          <div class="tracking-container">
+            <div class="tracking-search-box">
+              <form class="tracking-form" onsubmit="trackOrderSubmit(event)">
+                <div class="track-input-group">
+                  <label for="trackOrderId">Order ID / Tracking Number</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon">🔍</span>
+                    <input type="text" id="trackOrderId" placeholder="e.g. DHB849201 or your phone number" required value="DHB849201">
+                  </div>
+                </div>
+                <button type="submit" class="btn-gold track-submit-btn">Track Parcel →</button>
+              </form>
+              <div class="sample-ids">
+                <span>Quick Test IDs:</span>
+                <button type="button" onclick="setQuickTrack('DHB849201')">DHB849201 (In Transit)</button>
+                <button type="button" onclick="setQuickTrack('DHB932145')">DHB932145 (QC Passed)</button>
+                <button type="button" onclick="setQuickTrack('DHB572910')">DHB572910 (Delivered)</button>
+              </div>
+            </div>
+
+            <!-- Live Tracking Results Display -->
+            <div class="tracking-result" id="trackingResult">
+              <div class="tracking-summary-card">
+                <div class="summary-top">
+                  <div>
+                    <span class="order-id-label">Tracking Number: <strong id="resOrderId">DHB849201</strong></span>
+                    <h3 id="resItemName">Royal Shikargah Katan Silk Saree</h3>
+                  </div>
+                  <div class="delivery-status-badge in-transit" id="resStatusBadge">In Transit • Expected in 2 Days</div>
+                </div>
+
+                <div class="tracking-meta-grid">
+                  <div class="meta-item"><span class="meta-label">Origin</span><strong>Varanasi Handloom Hub, UP</strong></div>
+                  <div class="meta-item"><span class="meta-label">Courier Partner</span><strong id="resCourier">BlueDart Express (AWB: #BD9482910)</strong></div>
+                  <div class="meta-item"><span class="meta-label">Dispatched Date</span><strong id="resDate">Yesterday</strong></div>
+                  <div class="meta-item"><span class="meta-label">Estimated Delivery</span><strong id="resEta">Within 48 Hours</strong></div>
+                </div>
+
+                <!-- Timeline Progress -->
+                <div class="tracking-timeline" id="resTimeline">
+                  <div class="timeline-step completed">
+                    <div class="step-circle">✓</div>
+                    <div class="step-info">
+                      <h4>Order Confirmed & Artisan Assigned</h4>
+                      <p>Order verified & authentic handloom weaving record matched</p>
+                      <span class="step-time">Day 1 • 11:30 AM</span>
+                    </div>
+                  </div>
+                  <div class="timeline-step completed">
+                    <div class="step-circle">✓</div>
+                    <div class="step-info">
+                      <h4>Master Quality Check & Silk Testing</h4>
+                      <p>Saree inspected by master weavers; packed in breathable cotton muslin</p>
+                      <span class="step-time">Day 2 • 03:45 PM</span>
+                    </div>
+                  </div>
+                  <div class="timeline-step active">
+                    <div class="step-circle">🚚</div>
+                    <div class="step-info">
+                      <h4>Dispatched via Express Courier</h4>
+                      <p>Package in transit from Varanasi Hub to local delivery center</p>
+                      <span class="step-time">Yesterday • 06:10 PM</span>
+                    </div>
+                  </div>
+                  <div class="timeline-step">
+                    <div class="step-circle">🎁</div>
+                    <div class="step-info">
+                      <h4>Out for Delivery</h4>
+                      <p>Arriving safely at your doorstep with signature confirmation</p>
+                      <span class="step-time">Expected Soon</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tracking-help-line">
+                  <span>Need urgent delivery support?</span>
+                  <a href="https://wa.me/919565630398?text=Hello%20Dharohar,%20I%20want%20to%20check%20tracking%20for%20order%20" target="_blank" class="track-whatsapp-link">WhatsApp Dispatch Desk →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: RETURN POLICY -->
+        <div class="help-tab-content" id="content-returns">
+          <div class="help-section-header">
+            <span class="help-badge">100% Buyer Protection</span>
+            <h2>7-Day Hassle-Free Return & Exchange Policy</h2>
+            <p>We want you to be completely enchanted with your Banarasi treasure. If for any reason you are not satisfied, our transparent return and exchange policy guarantees complete peace of mind.</p>
+          </div>
+
+          <div class="policy-features-grid">
+            <div class="policy-card">
+              <div class="policy-icon">⏱️</div>
+              <h3>7-Day Return Window</h3>
+              <p>You can initiate a return or exchange request within <strong>7 days</strong> of delivery. Simply contact our support team with your order details.</p>
+            </div>
+            <div class="policy-card">
+              <div class="policy-icon">🚚</div>
+              <h3>Free Doorstep Reverse Pickup</h3>
+              <p>Our courier partner will arrange pickup directly from your address across 19,000+ PIN codes in India at zero extra cost.</p>
+            </div>
+            <div class="policy-card">
+              <div class="policy-icon">⚡</div>
+              <h3>Prompt Refunds & Replacements</h3>
+              <p>Refunds are processed within <strong>24–48 hours</strong> of quality inspection to your original payment method or bank account for COD orders.</p>
+            </div>
+            <div class="policy-card">
+              <div class="policy-icon">📹</div>
+              <h3>Video Exchange Consultation</h3>
+              <p>Looking to exchange for another color or design? Book a free video call to inspect alternative weaves live from our Varanasi loom.</p>
+            </div>
+          </div>
+
+          <div class="policy-details-box">
+            <h3>Return & Exchange Conditions:</h3>
+            <ul class="policy-list">
+              <li>The saree/dupatta must be unused, unwashed, and in its original pristine condition.</li>
+              <li>Original brand tags, Silk Mark tags, and packaging box/muslin cover must be intact.</li>
+              <li>Customized orders (e.g. customized blouse stitching or personalized fall-pico done upon special request) are eligible for exchange/alteration assistance.</li>
+              <li>In the rare event of damage in transit, please share an unboxing photo or video within 48 hours for immediate replacement.</li>
+            </ul>
+
+            <div class="return-steps-flow">
+              <h3>How to Initiate a Return in 3 Easy Steps:</h3>
+              <div class="flow-steps">
+                <div class="flow-step">
+                  <div class="flow-num">1</div>
+                  <strong>Message Support</strong>
+                  <p>Send your Order ID on WhatsApp at +91 95656 30398 or email us.</p>
+                </div>
+                <div class="flow-step">
+                  <div class="flow-num">2</div>
+                  <strong>Reverse Pickup</strong>
+                  <p>Our courier picks up the package from your doorstep with secure bag seal.</p>
+                </div>
+                <div class="flow-step">
+                  <div class="flow-num">3</div>
+                  <strong>Instant Refund</strong>
+                  <p>Upon verification, 100% refund is credited to your bank account or UPI.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="return-action-bar">
+              <a href="https://wa.me/919565630398?text=Hello%20Dharohar%20Support,%20I%20would%20like%20to%20request%20a%20return/exchange" target="_blank" class="btn-gold">Request Return on WhatsApp</a>
+              <a href="mailto:Choudharysareeindustries@gmail.com?subject=Return%20Request%20-%20Dharohar%20Banarasi" class="btn-outline-dark">Email Support Team</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 6: FAQS -->
+        <div class="help-tab-content" id="content-faqs">
+          <div class="help-section-header">
+            <span class="help-badge">Frequently Asked Questions</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Find instant answers to common questions regarding ordering, fabrics, custom bridal orders, and shipping.</p>
+          </div>
+
+          <!-- FAQ Filter Chips -->
+          <div class="faq-filters">
+            <button class="faq-chip active" onclick="filterFaqs('all')">All Questions</button>
+            <button class="faq-chip" onclick="filterFaqs('orders')">Ordering & Payment</button>
+            <button class="faq-chip" onclick="filterFaqs('authenticity')">Silk & Weaving</button>
+            <button class="faq-chip" onclick="filterFaqs('shipping')">Shipping & Delivery</button>
+            <button class="faq-chip" onclick="filterFaqs('custom')">Bridal & Video Shopping</button>
+          </div>
+
+          <div class="faq-accordion" id="faqAccordion">
+            <!-- FAQ 1 -->
+            <div class="faq-item" data-category="authenticity">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>Are all products 100% genuine handloom Banarasi silk?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, absolutely. Every piece at Dharohar Banarasi is hand-woven by master weavers in Varanasi under Choudhary Saree Industries (Est. 1979). We use 100% pure mulberry/katan silk filaments with real tested zari. Each product carries authentic weaving hallmarks and floating weft threads on the reverse side.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item" data-category="orders">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>What payment methods do you accept?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>We accept all major payment methods including Cash on Delivery (COD), UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards (Visa, Mastercard, RuPay), Net Banking, and International cards for overseas clients.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item" data-category="shipping">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>How long does domestic and international delivery take?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Domestic orders across metro cities (Delhi, Mumbai, Bengaluru, Hyderabad, Kolkata) take 2–4 business days. Other regional PIN codes take 4–6 business days. International orders via DHL/FedEx Express are delivered within 6–9 business days worldwide.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item" data-category="custom">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>How does Video Call Shopping work?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>You can schedule a dedicated WhatsApp or Google Meet video session with our textile master in Varanasi. We showcase the drape, fall, zari shimmer under natural light, and reverse weaving of any saree you wish to inspect before making a purchase. Simply WhatsApp us at <strong>+91 95656 30398</strong> to schedule a slot.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item" data-category="authenticity">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>Does the saree come with an unstitched blouse piece?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes! All our sarees are 6.5 meters in total length, which includes a running unstitched 0.8-meter matching pure silk blouse piece with coordinating zari border work.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item" data-category="orders">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>Can I cancel or modify my order after placing it?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, you can modify shipping details or cancel your order within 24 hours of placing it before the parcel is dispatched from Varanasi. Simply message our WhatsApp support desk at +91 95656 30398 with your Order ID.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item" data-category="shipping">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>Is shipping free on all orders?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>We provide 100% Free Shipping across all of India on orders above ₹2,999. For orders below ₹2,999, a nominal flat shipping fee of ₹150 is applied at checkout.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="faq-item" data-category="custom">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span>Do you take custom bridal orders and bulk trousseau requests?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, we specialize in bespoke bridal weaving! If you have a custom color palette, heritage Shikargah motif, or specific family heirloom design in mind, our master weavers can custom craft it on our handlooms. Lead time ranges from 3 to 6 weeks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- PRODUCT DETAIL -->
     <div id="productPage" style="display:none">
       <div class="product-detail-container" id="productDetail"></div>
@@ -363,12 +937,12 @@
         </div>
         <div class="footer-col">
           <h4>Help & Info</h4>
-          <a href="#">Saree Care Guide</a>
-          <a href="#">Authenticity Guide</a>
-          <a href="#">Draping Guide</a>
-          <a href="#">Track Your Order</a>
-          <a href="#">Return Policy</a>
-          <a href="#">FAQs</a>
+          <a href="javascript:void(0)" onclick="showHelpTab('saree-care')">Saree Care Guide</a>
+          <a href="javascript:void(0)" onclick="showHelpTab('authenticity')">Authenticity Guide</a>
+          <a href="javascript:void(0)" onclick="showHelpTab('draping')">Draping Guide</a>
+          <a href="javascript:void(0)" onclick="showHelpTab('track-order')">Track Your Order</a>
+          <a href="javascript:void(0)" onclick="showHelpTab('returns')">Return Policy</a>
+          <a href="javascript:void(0)" onclick="showHelpTab('faqs')">FAQs</a>
         </div>
         <div class="footer-col">
           <h4>Contact Us</h4>
@@ -383,9 +957,10 @@
     <div class="footer-bottom">
       <p>© 2024 Dharohar Banarasi | Choudhary Saree Industries. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Shipping Policy</a>
+        <a href="javascript:void(0)" onclick="showHelpTab('returns')">Return Policy</a>
+        <a href="javascript:void(0)" onclick="showHelpTab('saree-care')">Care Guide</a>
+        <a href="javascript:void(0)" onclick="showHelpTab('track-order')">Track Order</a>
+        <a href="javascript:void(0)" onclick="showHelpTab('faqs')">FAQs</a>
       </div>
     </div>
   </footer>

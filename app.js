@@ -152,6 +152,8 @@ function showPage(page) {
   document.getElementById('homePage').style.display = page === 'home' ? 'block' : 'none';
   document.getElementById('shopPage').style.display = page === 'shop' ? 'block' : 'none';
   document.getElementById('productPage').style.display = page === 'product' ? 'block' : 'none';
+  const helpPage = document.getElementById('helpPage');
+  if (helpPage) helpPage.style.display = page === 'help' ? 'block' : 'none';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -556,6 +558,171 @@ function initScrollHeader() {
   });
 }
 
+// ===== HELP & INFO TAB NAVIGATION =====
+function switchHelpTab(tabName) {
+  // Update Tab Buttons
+  document.querySelectorAll('.help-tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  const activeBtn = document.getElementById(`tab-${tabName}`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  // Update Tab Contents
+  document.querySelectorAll('.help-tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  const activeContent = document.getElementById(`content-${tabName}`);
+  if (activeContent) {
+    activeContent.classList.add('active');
+  }
+}
+
+function showHelpTab(tabName) {
+  showPage('help');
+  switchHelpTab(tabName);
+  setTimeout(() => {
+    const navEl = document.getElementById('helpTabsNav');
+    if (navEl) {
+      const topOffset = navEl.getBoundingClientRect().top + window.pageYOffset - 110;
+      window.scrollTo({ top: Math.max(0, topOffset), behavior: 'smooth' });
+    }
+  }, 100);
+}
+
+// ===== FAQ ACCORDION & FILTERING =====
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasActive = item.classList.contains('active');
+  
+  // Optionally close other items in accordion
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+  
+  if (!wasActive) {
+    item.classList.add('active');
+  }
+}
+
+function filterFaqs(category) {
+  document.querySelectorAll('.faq-chip').forEach(chip => chip.classList.remove('active'));
+  if (event && event.target) event.target.classList.add('active');
+
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach(item => {
+    if (category === 'all' || item.dataset.category === category) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+      item.classList.remove('active');
+    }
+  });
+}
+
+// ===== ORDER TRACKING LOGIC =====
+const mockOrders = {
+  'DHB849201': {
+    name: 'Royal Shikargah Katan Silk Saree',
+    statusText: 'In Transit • Expected in 2 Days',
+    statusClass: 'in-transit',
+    courier: 'BlueDart Express (AWB: #BD9482910)',
+    date: 'Yesterday',
+    eta: 'Within 48 Hours',
+    steps: [
+      { title: 'Order Confirmed & Artisan Assigned', desc: 'Order verified & authentic handloom weaving record matched', time: 'Day 1 • 11:30 AM', state: 'completed', icon: '✓' },
+      { title: 'Master Quality Check & Silk Testing', desc: 'Saree inspected by master weavers; packed in breathable cotton muslin', time: 'Day 2 • 03:45 PM', state: 'completed', icon: '✓' },
+      { title: 'Dispatched via Express Courier', desc: 'Package in transit from Varanasi Hub to local delivery center', time: 'Yesterday • 06:10 PM', state: 'active', icon: '🚚' },
+      { title: 'Out for Delivery', desc: 'Arriving safely at your doorstep with signature confirmation', time: 'Expected Soon', state: '', icon: '🎁' }
+    ]
+  },
+  'DHB932145': {
+    name: 'Blossom Organza Banarasi Saree',
+    statusText: 'Quality Verified • Preparing Dispatch',
+    statusClass: 'qc',
+    courier: 'Delhivery Surface (AWB: Pending)',
+    date: 'Today',
+    eta: 'Within 3–5 Days',
+    steps: [
+      { title: 'Order Confirmed & Artisan Assigned', desc: 'Pure Organza warp matched at Varanasi handloom center', time: 'Today • 09:15 AM', state: 'completed', icon: '✓' },
+      { title: 'Master Quality Check & Silk Testing', desc: 'Passed Silk Mark filament & pure zari luster inspection', time: 'Today • 02:30 PM', state: 'active', icon: '🔍' },
+      { title: 'Dispatched via Express Courier', desc: 'Handover scheduled with courier partner', time: 'Scheduled for Tomorrow', state: '', icon: '🚚' },
+      { title: 'Out for Delivery', desc: 'Safe delivery at your doorstep', time: 'Expected Soon', state: '', icon: '🎁' }
+    ]
+  },
+  'DHB572910': {
+    name: 'Crimson Bridal Dupatta',
+    statusText: 'Delivered Successfully',
+    statusClass: 'delivered',
+    courier: 'BlueDart Express (AWB: #BD7728192)',
+    date: '3 Days Ago',
+    eta: 'Delivered on Saturday',
+    steps: [
+      { title: 'Order Confirmed & Artisan Assigned', desc: 'Handwoven bridal order processed', time: 'Aug 28 • 10:00 AM', state: 'completed', icon: '✓' },
+      { title: 'Master Quality Check & Silk Testing', desc: 'Handloom hallmark & real zari tested', time: 'Aug 29 • 04:00 PM', state: 'completed', icon: '✓' },
+      { title: 'Dispatched via Express Courier', desc: 'Transited through Varanasi & local hub', time: 'Aug 30 • 08:30 PM', state: 'completed', icon: '✓' },
+      { title: 'Out for Delivery & Handed Over', desc: 'Delivered with recipient signature verification', time: 'Aug 31 • 02:15 PM', state: 'completed', icon: '🎉' }
+    ]
+  }
+};
+
+function trackOrderSubmit(e) {
+  e.preventDefault();
+  const input = document.getElementById('trackOrderId').value.trim().toUpperCase();
+  if (!input) return;
+
+  const orderData = mockOrders[input] || {
+    name: `Custom Handwoven Banarasi Parcel (#${input})`,
+    statusText: 'In Transit • On Schedule',
+    statusClass: 'in-transit',
+    courier: 'BlueDart / Express Logistics (AWB: #BD' + Math.floor(1000000 + Math.random() * 9000000) + ')',
+    date: '2 Days Ago',
+    eta: 'Within 2–3 Days',
+    steps: [
+      { title: 'Order Verified & Artisan Assigned', desc: 'Handloom weaving record registered with Choudhary Saree Industries', time: 'Completed', state: 'completed', icon: '✓' },
+      { title: 'Quality Assurance & Muslin Packaging', desc: '100% pure silk inspection completed by master craftsman', time: 'Completed', state: 'completed', icon: '✓' },
+      { title: 'Dispatched from Varanasi Hub', desc: 'Parcel scanned at Varanasi central logistics facility', time: 'In Transit', state: 'active', icon: '🚚' },
+      { title: 'Doorstep Delivery', desc: 'Safe delivery with contactless confirmation', time: 'Expected Soon', state: '', icon: '🎁' }
+    ]
+  };
+
+  // Render dynamic tracking info
+  document.getElementById('resOrderId').textContent = input;
+  document.getElementById('resItemName').textContent = orderData.name;
+  
+  const badge = document.getElementById('resStatusBadge');
+  badge.className = `delivery-status-badge ${orderData.statusClass}`;
+  badge.textContent = orderData.statusText;
+
+  document.getElementById('resCourier').textContent = orderData.courier;
+  document.getElementById('resDate').textContent = orderData.date;
+  document.getElementById('resEta').textContent = orderData.eta;
+
+  // Timeline
+  const timelineEl = document.getElementById('resTimeline');
+  timelineEl.innerHTML = orderData.steps.map(s => `
+    <div class="timeline-step ${s.state}">
+      <div class="step-circle">${s.icon}</div>
+      <div class="step-info">
+        <h4>${s.title}</h4>
+        <p>${s.desc}</p>
+        <span class="step-time">${s.time}</span>
+      </div>
+    </div>
+  `).join('');
+
+  showToast(`✓ Tracking details updated for ${input}!`, 'success');
+}
+
+function setQuickTrack(id) {
+  const input = document.getElementById('trackOrderId');
+  if (input) {
+    input.value = id;
+    const form = input.closest('form');
+    if (form) form.dispatchEvent(new Event('submit', { cancelable: true }));
+  }
+}
+
 // ===== CSS ANIMATIONS =====
 const style = document.createElement('style');
 style.textContent = `
@@ -563,3 +730,4 @@ style.textContent = `
   @keyframes scaleIn { from { opacity:0;transform:scale(0.8) } to { opacity:1;transform:scale(1) } }
 `;
 document.head.appendChild(style);
+
